@@ -1,9 +1,3 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbzeBHbJjcUwa5qDSsUWfDAbKbvfoHjlqFA1U90CWjCRHJJC9bS9v7V68hX4NDljY1wx/exec'
-const form = document.forms['Contact-Form-Website-OSIS ']
-const btnKirim = document.querySelector('.btn-kirim');
-const btnLoading = document.querySelector('.btn-loading');
-const myAlert = document.querySelector('.my-alert');
-const myAlert2 = document.querySelector('.my-alert2');
 var name1 = document.getElementById('name1');
 var myNav = document.getElementById('nav1');
 // var empt = document.forms['Portofolio-Contact-Form-vincentf']['name'].value;
