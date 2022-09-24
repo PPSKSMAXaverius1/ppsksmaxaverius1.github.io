@@ -259,53 +259,55 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6 ">
-            <h5 class="text-white fs-4 ">Hubungi Kami</h5>
-            <form name="Portofolio-Contact-Form-vincentf " method="POST " class="needs-validation row justify-content-center mx-2 " id="validd " data-aos="fade-up " novalidate>
-              <div class="mb-1 col-md-6 g-1 ">
-                <input type="text " placeholder="Nama lengkap " class="form-control " id="name1 " aria-describedby="name " id="namaa " minlength="3 " name="name " required />
-                <div class="valid-feedback ">Name field is valid!</div>
-                <div class="invalid-feedback ">Please provide a valid name, thank you!</div>
+            <h5 class="text-white fs-4">Hubungi Kami</h5>
+            <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+              <strong>Terimakasih!</strong> Pesan anda sudah kami terima.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <form name="Contact-Form-Website-OSIS" class="needs-validation row justify-content-center mx-2 " id="validd " data-aos="fade-down " novalidate>
+              <div class="form-floating mb-1 col-md-6 g-1">
+                <input type="text" placeholder="text" class="form-control" id="name1" aria-describedby="name" name="nama" required/>
+                <label for="floatingInput">Nama</label>
+                <div class="valid-feedback">Name field is valid!</div>
+                <div class="invalid-feedback">Please provide a valid name, thank you!</div>
               </div>
-              <div class=" mb-1 col-md-6 g-1 ">
-                <input type="email " placeholder="Email/Surel " class="form-control " id="email1 " aria-describedby="email " id="emaill " minlength="3 " name="email " required />
-                <div class="valid-feedback ">Email field is valid!</div>
-                <div class="invalid-feedback ">Please provide a valid email, thank you!</div>
+              <div class="form-floating mb-1 col-md-6 g-1">
+                <input type="email" class="form-control" placeholder="text" id="email1" aria-describedby="name" name="email" required/>
+                <label for="floatingInput">Email</label>
               </div>
-              <div class=" mb-1 col-md-12 g-1 ">
-                <input type="text " placeholder="Topik " class="form-control " id="subject1 " aria-describedby="subject " id="subjectt " minlength="3 " name="subject " required />
-                <div class="valid-feedback ">Subject field is valid!</div>
-                <div class="invalid-feedback ">Please provide a valid subject, thank you!</div>
+              <div class="form-floating mb-1 col-md-12 g-1">
+                <input type="text" class="form-control" placeholder="text" id="subject1" aria-describedby="email" name="topik" required/>
+                <label for="floatingInput">Topik</label>
               </div>
-              <div class=" mb-1 col-md-12 g-1 ">
-                <textarea type="text " class="form-control " placeholder="Pesan " id="pesan1 " id="pesann " minlength="10 " name="pesan " style="height: 20vh " required></textarea>
-                <div class="valid-feedback ">Massage field is valid!</div>
-                <div class="invalid-feedback ">Please leave a valid message, thank you!</div>
+              <div class="form-floating mb-1 col-md-12 g-1">
+                <textarea class="form-control" placeholder="text" id="pesan1" rows="3" name="pesan" required></textarea>
+                <label for="floatingInput">Pesan</label>
               </div>
-              <div>
-                <div class="form-group g-1 ">
-                  <div class="g-recaptcha " data-sitekey="6LfD3EYdAAAAAMkwdkiOLF_3Lqj79s-wUwY51rOq " data-callback="verifyRecaptchaCallback " data-expired-callback="expiredRecaptchaCallback "></div>
-                  <input class="form-control d-none " data-recaptcha="true " required data-error="Please complete the Captcha " />
-                  <div class="help-block with-errors "></div>
-                </div>
-                <button type="submit " class="mx-auto d-block btn btn-primary btn-kirim " id="form-submit " onsubmit="verifyRecaptchaCallback(); " disabled>Submit!</button>
-                <button class="btn btn-primary btn-loading mx-auto d-block d-none g-1 " type="button " disabled>
-              <span class="spinner-border spinner-border-sm " role="status " aria-hidden="true "></span>
-              Loading...
-            </button>
-                <br>
+
+              <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="6LdCeiYiAAAAADsWmFejNeqwhssN7ZsUUNY1Ps3k" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
+                <input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha" />
+                <div class="help-block with-errors"></div>
               </div>
+              <button type="submit" class="btn btn-primary btn-kirim " onsubmit="verifyRecaptchaCallback(); " id="form-submit" disabled>Kirim</button>
+              <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Loading...
+              </button>
             </form>
+
           </div>
         </div>
       </div>
     </footer>
-    <div class="row " id="copyright ">
+    <div class="row " id="copyright">
       <p class="align-middle text-center fs-6 text-light mb-0 " style="margin-top: 5px; ">Copyright &copy; 2022 <a href="https://www.instagram.com/ppskbangau/ " target="_blank " class="text-light fw-bold ">PPSK SMA Xaverius 1 Palembang.</a> All Rights Reserved. </p>
     </div>
   </div>
   <!-- Footer End -->
   <!-- osis line -->
   </div>
+
 
 
   <!--<img src="img/separator1.jpeg " class="img-fluid " style="margin-top: -6px " />
@@ -340,24 +342,37 @@
   <!--Google spreadsheet data-->
   <script src="main.js "></script>
   <script>
-    let items = document.querySelectorAll('.carousel .carousel-item')
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzeBHbJjcUwa5qDSsUWfDAbKbvfoHjlqFA1U90CWjCRHJJC9bS9v7V68hX4NDljY1wx/exec'
+    const form = document.forms['Contact-Form-Website-OSIS']
+    const btnKirim = document.querySelector('.btn-kirim');
+    const btnLoading = document.querySelector('.btn-loading');
+    const myAlert = document.querySelector('.my-alert');
 
-    items.forEach((el) => {
-      const minPerSlide = 3
-      let next = el.nextElementSibling
-      for (var i = 1; i < minPerSlide; i++) {
-        if (!next) {
-          // wrap carousel by using first child
-          next = items[0]
-        }
-        let cloneChild = next.cloneNode(true)
-        el.appendChild(cloneChild.children[0])
-        next = next.nextElementSibling
-      }
-    })
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      // ketika tombol submit diklik
+      // tampilkan tombol loading, hilangkan tombol kirim
+      btnLoading.classList.toggle('d-none');
+      btnKirim.classList.toggle('d-none');
+      fetch(scriptURL, {
+          method: 'POST',
+          body: new FormData(form)
+        })
+        .then((response) => {
+          // tampilkan tombol kirim, hilangkan tombol loading
+          btnLoading.classList.toggle('d-none');
+          btnKirim.classList.toggle('d-none');
+          // tampilkan alert
+          myAlert.classList.toggle('d-none');
+          // reset formnya
+          form.reset();
+          console.log('Success!', response);
+        })
+        .catch((error) => console.error('Error!', error.message));
+    });
   </script>
-  <!--
-  <script type="text/javascript ">
+  <script>
     function validating() {
       var btnSubmit = document.querySelector('#form-submit');
       const inpObj1 = document.getElementById('name1');
@@ -425,10 +440,26 @@
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      e.stopPropagation();
       verifyRecaptchaCallback();
     });
-  </script>-->
+  </script>
+  <script>
+    let items = document.querySelectorAll('.carousel .carousel-item')
+
+    items.forEach((el) => {
+      const minPerSlide = 1
+      let next = el.nextElementSibling
+      for (var i = 1; i < minPerSlide; i++) {
+        if (!next) {
+          // wrap carousel by using first child
+          next = items[0]
+        }
+        let cloneChild = next.cloneNode(true)
+        el.appendChild(cloneChild.children[0])
+        next = next.nextElementSibling
+      }
+    })
+  </script>
   <script src="https://unpkg.com/aos@next/dist/aos.js "></script>
   <script>
     AOS.init();
