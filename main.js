@@ -1,5 +1,5 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbyBEFpVP4AdVTYQLT8nrB5Qo8Ne-dd26G2BaE9K4zCUyWXO3zR4ORq-IjWMAFYsbR8uQw/exec';
-const form = document.forms['Portofolio-Contact-Form-vincentf'];
+const scriptURL = 'https://script.google.com/macros/s/AKfycbzeBHbJjcUwa5qDSsUWfDAbKbvfoHjlqFA1U90CWjCRHJJC9bS9v7V68hX4NDljY1wx/exec'
+const form = document.forms['Contact-Form-Website-OSIS ']
 const btnKirim = document.querySelector('.btn-kirim');
 const btnLoading = document.querySelector('.btn-loading');
 const myAlert = document.querySelector('.my-alert');
@@ -7,7 +7,6 @@ const myAlert2 = document.querySelector('.my-alert2');
 var name1 = document.getElementById('name1');
 var myNav = document.getElementById('nav1');
 // var empt = document.forms['Portofolio-Contact-Form-vincentf']['name'].value;
-const forms = document.querySelectorAll('.needs-validation');
 
 window.onscroll = function() {
   'use strict';
@@ -21,27 +20,6 @@ window.onscroll = function() {
 };
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
-(function() {
-  'use strict';
-
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  const formss = document.querySelectorAll('.needs-validation');
-
-  // Loop over them and prevent submission
-  Array.prototype.slice.call(formss).forEach(function(form) {
-    form.addEventListener(
-      'submit',
-      function(event) {
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      },
-      false
-    );
-  });
-})();
 //var aa = document.getElementsByName("name").value;
 //var bb = document.getElementsByName("email").value;
 //var cc = document.getElementsByName("pesan").value;

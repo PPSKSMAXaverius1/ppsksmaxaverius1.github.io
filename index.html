@@ -270,41 +270,31 @@
           </div>
           <div class="col-lg-4 col-md-6 ">
             <h5 class="text-white fs-4">Hubungi Kami</h5>
-            <form name="Contact-Form-Website-OSIS" method="POST " class="needs-validation row justify-content-center mx-2 " id="validd " data-aos="fade-down " novalidate>
+            <form name="Contact-Form-Website-OSIS" onsubmit="return false" class="needs-validation row justify-content-center mx-2 " id="validd " data-aos="fade-down " novalidate>
               <div class="mb-1 col-md-6 g-1">
-                <input type="text" placeholder="Nama lengkap " class="form-control " id="name1 " aria-describedby="name " id="namaa " minlength="3 " name="name " required />
-                <div class="valid-feedback ">Name field is valid!</div>
-                <div class="invalid-feedback ">Please provide a valid name, thank you!</div>
+                <label for="name" class="form-label">Nama Lengkap</label>
+                <input type="text" class="form-control" id="name" aria-describedby="name" name="nama" />
               </div>
-              <div class=" mb-1 col-md-6 g-1">
-                <input type="email " placeholder="Email/Surel" class="form-control " id="email1 " aria-describedby="email " id="emaill " minlength="3 " name="email " required />
-                <div class="valid-feedback ">Email field is valid!</div>
-                <div class="invalid-feedback ">Please provide a valid email, thank you!</div>
+              <div class="mb-1 col-md-6 g-1">
+                <label for="name" class="form-label">Email</label>
+                <input type="email" class="form-control" id="name" aria-describedby="name" name="email" />
               </div>
-              <div class=" mb-1 col-md-12 g-1">
-                <input type="text " placeholder="Topik " class="form-control " id="subject1 " aria-describedby="subject " id="subjectt " minlength="3 " name="subject " required />
-                <div class="valid-feedback ">Subject field is valid!</div>
-                <div class="invalid-feedback ">Please provide a valid subject, thank you!</div>
+              <div class="mb-1 col-md-12 g-1">
+                <label for="name" class="form-label">Topik</label>
+                <input type="text" class="form-control" id="email" aria-describedby="email" name="topik" />
               </div>
-              <div class=" mb-1 col-md-12 g-1">
-                <textarea type="text " class="form-control " placeholder="Pesan" id="pesan1 " id="pesann " minlength="10 " name="pesan " style="height: 20vh " required></textarea>
-                <div class="valid-feedback ">Massage field is valid!</div>
-                <div class="invalid-feedback ">Please leave a valid message, thank you!</div>
+              <div class="mb-1 col-md-12 g-1">
+                <label for="pesan" class="form-label">Pesan</label>
+                <textarea class="form-control" id="pesan" rows="3" name="pesan"></textarea>
               </div>
-              <div>
-                <div class="form-group g-1">
-                  <div class="g-recaptcha " data-sitekey="6Le0GfIhAAAAAJi2De7xbkC-5jhsmvgbD1juk-zZ" data-callback="verifyRecaptchaCallback " data-expired-callback="expiredRecaptchaCallback "></div>
-                  <input class="form-control d-none " data-recaptcha="true " required data-error="Please complete the Captcha " />
-                  <div class="help-block with-errors "></div>
-                </div>
-                <button type="submit " class="mx-auto d-block btn btn-primary btn-kirim " id="form-submit " onsubmit="verifyRecaptchaCallback(); " disabled>Submit!</button>
-                <button class="btn btn-primary btn-loading mx-auto d-block d-none g-1" type="button " disabled>
-              <span class="spinner-border spinner-border-sm " role="status " aria-hidden="true "></span>
-              Loading...
-            </button>
-                <br>
-              </div>
+              <button type="submit" class="btn btn-primary btn-kirim">Kirim</button>
+
+              <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Loading...
+              </button>
             </form>
+
           </div>
         </div>
       </div>
@@ -352,17 +342,34 @@
   <script src="main.js "></script>
   <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbzeBHbJjcUwa5qDSsUWfDAbKbvfoHjlqFA1U90CWjCRHJJC9bS9v7V68hX4NDljY1wx/exec'
-    const form = document.forms['Contact-Form-Website-OSIS ']
+    const form = document.forms['Contact-Form-Website-OSIS']
+    const btnKirim = document.querySelector('.btn-kirim');
+    const btnLoading = document.querySelector('.btn-loading');
+    const myAlert = document.querySelector('.my-alert');
 
-    form.addEventListener('submit', e => {
-      e.preventDefault()
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      // ketika tombol submit diklik
+      // tampilkan tombol loading, hilangkan tombol kirim
+      btnLoading.classList.toggle('d-none');
+      btnKirim.classList.toggle('d-none');
       fetch(scriptURL, {
           method: 'POST',
           body: new FormData(form)
         })
-        .then(response => console.log('Success!', response))
-        .catch(error => console.error('Error!', error.message))
-    })
+        .then((response) => {
+          // tampilkan tombol kirim, hilangkan tombol loading
+          btnLoading.classList.toggle('d-none');
+          btnKirim.classList.toggle('d-none');
+          // tampilkan alert
+          myAlert.classList.toggle('d-none');
+          // reset formnya
+          form.reset();
+          console.log('Success!', response);
+        })
+        .catch((error) => console.error('Error!', error.message));
+    });
   </script>
 
   <script>
@@ -381,79 +388,6 @@
         next = next.nextElementSibling
       }
     })
-  </script>
-
-  <script type="text/javascript ">
-    function validating() {
-      var btnSubmit = document.querySelector('#form-submit');
-      const inpObj1 = document.getElementById('name1');
-      const inpObj2 = document.getElementById('email1');
-      const inpObj3 = document.getElementById('subject1');
-      const inpObj4 = document.getElementById('pesan1');
-      if (!inpObj1.checkValidity() && !inpObj2.checkValidity() && !inpObj3.checkValidity() && !inpObj4.checkValidity()) {
-        console.log('fill the field >.<');
-      } else {
-        btnSubmit.removeAttribute('disabled');
-        console.log('starting to submit');
-        btnLoading.classList.toggle('d-none');
-        btnKirim.classList.toggle('d-none');
-        fetch(scriptURL, {
-            method: 'POST',
-            body: new FormData(form)
-          })
-          .then((response) => {
-            console.log('Success!', response);
-            btnLoading.classList.toggle('d-none');
-            btnKirim.classList.toggle('d-none');
-            myAlert.classList.toggle('d-none');
-            form.reset();
-            grecaptcha.reset();
-            form.classList.remove('was-validated');
-            form.classList.add('requires-validation');
-          })
-          .catch((error) => {
-            console.error('Error!', error.message);
-            myAlert2.classList.toggle('d-none');
-          });
-      }
-    }
-
-    function verifyRecaptchaCallback() {
-      validating();
-      var btnSubmit = document.querySelector('#form-submit');
-      btnSubmit.removeAttribute('disabled');
-    }
-
-    function sending() {
-
-      console.log('starting to submit');
-      btnLoading.classList.toggle('d-none');
-      btnKirim.classList.toggle('d-none');
-      fetch(scriptURL, {
-          method: 'POST',
-          body: new FormData(form)
-        })
-        .then((response) => {
-          console.log('Success!', response);
-          btnLoading.classList.toggle('d-none');
-          btnKirim.classList.toggle('d-none');
-          myAlert.classList.toggle('d-none');
-          form.reset();
-          grecaptcha.reset();
-          form.classList.remove('was-validated');
-          form.classList.add('requires-validation');
-        })
-        .catch((error) => {
-          console.error('Error!', error.message);
-          myAlert2.classList.toggle('d-none');
-        });
-    }
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      verifyRecaptchaCallback();
-    });
   </script>
   <script src="https://unpkg.com/aos@next/dist/aos.js "></script>
   <script>

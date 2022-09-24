@@ -514,7 +514,14 @@ html::-webkit-scrollbar {
   }
 }
 
+#judul {
+  font-size: clamp(75px, 60%, 140px);
+}
+
 @media (max-width: 767px) {
+  #judul {
+    font-size: clamp(50px, 50%, 120px);
+  }
   .carousel-inner .carousel-item>div {
     display: none;
   }
